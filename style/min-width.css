@@ -21,6 +21,7 @@ ul {
 }
 
 .banner {
+    display: none;
     padding: 20px 0 10px;
     background: #374F4C;
 }
@@ -42,7 +43,7 @@ ul {
 }
 
 .nav-header ul {
-    display: flex;
+    display: none;
 }
 
 .nav-header li:not(:last-child) {
@@ -50,7 +51,7 @@ ul {
 }
 
 .mob-menu {
-    display: none;
+    display: block;
 }
 
 .mob-menu span {
@@ -64,15 +65,16 @@ ul {
 
 .promo {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
 
 .content {
-    max-width: 365px;
+    max-width: 100%;
 }
 
 h1 {
-    font-size: 46px;
+    font-size: 28px;
     line-height: 1;
     letter-spacing: 1px;
     color: #374F4C;
@@ -81,40 +83,36 @@ h1 {
 
 .partners {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr;
     row-gap: 10px;
 }
 
-/* !!!!ОБЯЗАТЕЛЬНО!!!! пишем брекпоинты снизу основного кода,
+/* если используем max-width то пишем брекпоинты снизу основного кода,
 тогда браузер правильно читает таблицу стилей и основные стили не перебивают брекпоинты*/
 
-/* все что до 768 px */
-@media (max-width: 768px) {
-    .banner {
-        display: none;
+/* все что больше 768 px */
+@media (min-width: 768px) {
+    .promo {
+        flex-direction: row;
     }
 
     .mob-menu {
-        display: block;
-    }
-
-    .nav-header ul {
         display: none;
     }
-
-    .promo {
-        flex-direction: column;
+    
+    .nav-header ul {
+        display: flex;
     }
-
+    
     .content {
-        max-width: 100%;
+        max-width: 365px;
     }
-
+    
     h1 {
-        font-size: 28px;
+        font-size: 46px;
     }
-
+    
     .partners {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(3, 1fr);
     }
 }
